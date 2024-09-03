@@ -14,4 +14,5 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
-ENTRYPOINT [ "gunicorn", "core.wsgi", "-b", "0.0.0.0:8000"]
+# Replace 'core.wsgi' with 'caco_blog.wsgi' or your actual project name
+ENTRYPOINT [ "gunicorn", "caco_blog.wsgi", "-b", "0.0.0.0:8000"]

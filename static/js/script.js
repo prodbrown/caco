@@ -37,12 +37,4 @@
         console.log('Page loaded');
     });
 
-    // Example of a function to dynamically modify page content
-    function modifyPageContent() {
-        var header = document.querySelector('h1');
-        if (header) {
-            header.innerText = 'Welcome to CACO!';
-        }
-    }
-    modifyPageContent();
 })();

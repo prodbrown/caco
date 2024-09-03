@@ -1,0 +1,71 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container-fluid px-4">
+  <div class="row justify-content-center">
+    <!-- Widening the column to occupy more space -->
+    <div class="col-lg-10 col-md-12">
+      <h1 class="my-4">{{ post.title }}</h1>
+      <p class="text-muted">By {{ post.author }} on {{ post.created_at }}</p>
+      <div class="mb-4">{{ post.content | safe }}</div>
+
+      <!-- Display Post Image if Available -->
+      {% if post.image %}
+        <div class="text-center mb-4">
+          <img src="{{ post.image.url }}" class="img-fluid" style="max-width: 100%; height: auto;" alt="{{ post.title }}">
+        </div>
+      {% endif %}
+
+      <!-- Display Post Audio if Available -->
+      {% if post.audio %}
+        <div class="mb-4">
+          <audio controls class="w-100">
+            <source src="{{ post.audio.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      {% endif %}
+
+      <!-- Display Post Video if Available -->
+      {% if post.video %}
+        <div class="text-center mb-4">
+          <video controls style="max-width: 60%; height: auto; margin: 0 auto;">
+            <source src="{{ post.video.url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      {% endif %}
+
+            <!-- Edit and Delete buttons for staff users -->
+      {% if user.is_staff %}
+        <div class="mt-4">
+          <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning">Edit</a>
+          <a href="{% url 'post_delete' post.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+      {% endif %}
+
+
+      <!-- Display Comments -->
+      <h2 class="mt-5">Comments</h2>
+      <div class="comments mb-5">
+        {% for comment in comments %}
+          <div class="comment my-3 p-3 border rounded" style="background-color: #f9f9f9;">
+            <p class="comment-author" style="color: #007bff; font-weight: bold;">{{ comment.author }}</p>
+            <p class="comment-content" style="color: #333;">{{ comment.content }}</p>
+          </div>
+        {% empty %}
+          <p class="text-muted">No comments yet. Be the first to comment!</p>
+        {% endfor %}
+      </div>
+
+      <!-- Comment Form -->
+      <h2>Leave a Comment</h2>
+      <form method="post" class="mb-4">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

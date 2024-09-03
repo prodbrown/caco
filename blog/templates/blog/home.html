@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block title %}Home - CACO{% endblock %}
+
+{% block content %}
+<div class="container">
+  <!-- Header with Static Image Icons -->
+  <div class="text-center my-4 d-flex justify-content-center align-items-center">
+    <img src="{% static 'images/caco.jpg' %}" alt="CACO Blog Icon Left" class="img-fluid" style="max-width: 160px; margin-right: 10px;">
+    <h1>CARE AND COMFORT (CACO) ORGANIZATION</h1>
+    <img src="{% static 'images/nembo.jpg' %}" alt="CACO Blog Icon Right" class="img-fluid" style="max-width: 120px; margin-left: 10px;">
+  </div>
+
+<hr>
+
+  <!-- Welcome Message -->
+
+<h2>POSTS</h2>
+
+  <!-- Centered Blog Posts List -->
+  <div class="row justify-content-center">
+    {% for post in posts %}
+
+      <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+        <div class="card mb-4">
+
+
+
+          {% if post.image %}
+
+            <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }} </h5>
+
+              <p></p>
+            <p class="card-text">{{ post.content|truncatewords:20 | safe }}</p>
+            <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

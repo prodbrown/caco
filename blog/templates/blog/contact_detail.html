@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Contact Us</h1>
+  
+  {% if contact %}
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Contact Information</h5>
+        <p class="card-text">{{ contact.content | safe }}</p>
+        <div class="d-flex justify-content-between">
+          <a href="{% url 'contact_edit' %}" class="btn btn-warning">Edit</a>
+          <a href="{% url 'contact_delete' %}" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div class="card mb-4">
+      <div class="card-body text-center">
+        <p>No contact information is available yet.</p>
+        {% if user.is_staff %}
+        <a href="{% url 'contact_edit' %}" class="btn btn-primary">Add Contact Information</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+  
+</div>
+{% endblock %}

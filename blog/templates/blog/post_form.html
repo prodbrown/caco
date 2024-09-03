@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{% if post.id %}Edit Post{% else %}New Post{% endif %} - CACO Blog{% endblock %}
+
+{% block content %}
+
+{% if user.is_staff %}
+<div class="container">
+  <h1>{% if post.id %}Edit Post{% else %}Create a New Post{% endif %}</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% if post.id %}Update Post{% else %}Create Post{% endif %}</button>
+  </form>
+</div>
+
+{% endif%}
+{% endblock %}

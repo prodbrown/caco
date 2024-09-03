@@ -1,0 +1,156 @@
+<style>
+
+/* General Body Styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #f8f9fa; /* Light text color on dark background */
+  background-color: #343a40; /* Dark background */
+}
+
+/* Page Title */
+title {
+  color: #dc3545; /* Red title color */
+}
+
+/* Container */
+.container {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #495057; /* Dark gray footer background */
+  color: #dc3545; /* Red text color for footer */
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Navbar Styles */
+.custom-navbar {
+  background-color: #007bff; /* Blue background */
+  border-bottom: 2px solid #0056b3; /* Darker blue border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff; /* White text for brand */
+}
+
+.nav-link {
+  font-size: 16px;
+  color: #f8f9fa; /* Light text for links */
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #dc3545; /* Red on hover */
+}
+
+.navbar-toggler {
+  border-color: #dc3545; /* Red border */
+}
+
+.navbar-toggler-icon {
+  background-color: #dc3545; /* Red toggler icon */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #343a40; /* Dark background for dropdown */
+}
+
+.dropdown-item {
+  font-size: 15px;
+  color: #f8f9fa; /* Light text */
+}
+
+.dropdown-item:hover {
+  background-color: #495057; /* Dark gray background */
+  color: #dc3545; /* Red text on hover */
+}
+
+/* Content Area */
+.container-fluid {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Comment Styling */
+.comment {
+  background-color: #495057; /* Dark gray background */
+  padding: 15px;
+  border: 1px solid #6c757d; /* Gray border */
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.comment-author {
+  color: #007bff; /* Blue author text */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-content {
+  color: #f8f9fa; /* Light text */
+  margin-bottom: 10px;
+}
+
+/* Image Styling */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form Styling */
+form {
+  margin-top: 20px;
+}
+
+/* Card Header */
+.card-header {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  color: #dc3545; /* Red header */
+}
+
+/* Card Body */
+.card-body p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.btn-outline-warning {
+  width: 120px;
+  border-color: #dc3545; /* Red border */
+}
+
+.btn-outline-warning:hover {
+  background-color: #dc3545; /* Red background on hover */
+  color: #fff;
+}
+
+.btn-outline-danger {
+  width: 120px;
+  border-color: #dc3545; /* Red border */
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545; /* Red background on hover */
+  color: #fff;
+}
+
+
+</style>

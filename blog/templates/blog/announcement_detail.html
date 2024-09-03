@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>{{ announcement.title }}</h1>
+  <p>{{ announcement.content | safe }}</p>
+
+  <!-- Display Announcement Image if Available -->
+  {% if announcement.image %}
+    <div class="text-center mb-4">
+      <img src="{{ announcement.image.url }}" class="img-fluid" style="max-width: 100%; height: auto;" alt="{{ announcement.title }}">
+    </div>
+  {% endif %}
+
+  <!-- Display Announcement Audio if Available -->
+  {% if announcement.audio %}
+    <div class="mb-4">
+      <audio controls class="w-100">
+        <source src="{{ announcement.audio.url }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  {% endif %}
+
+  <!-- Display Announcement Video if Available -->
+  {% if announcement.video %}
+    <div class="text-center mb-4">
+      <video controls class="w-100" style="max-width: 100%; height: auto;">
+        <source src="{{ announcement.video.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  {% endif %}
+
+  <!-- Edit and Delete buttons for staff users -->
+  {% if user.is_staff %}
+    <div class="mt-4">
+      <a href="{% url 'announcement_edit' announcement.pk %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'announcement_delete' announcement.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

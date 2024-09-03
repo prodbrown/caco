@@ -194,7 +194,31 @@ form {
   background-color: #ff6347; /* Light red background on hover */
   color: #fff;
 }
+/* Add custom styles to handle different screen sizes */
+.logo-icon {
+  max-width: 160px; /* Adjust the max-width to fit your design */
+}
 
+@media (max-width: 576px) {
+  /* Small devices (landscape phones, less than 576px) */
+  .logo-icon {
+    max-width: 80px; /* Reduce the logo size for small screens */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Adjust font size for headers on small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Medium devices (tablets, less than 768px) */
+  .logo-icon {
+    max-width: 100px; /* Slightly larger on tablets */
+  }
+}
+
+
+  
 
 </style>
 
